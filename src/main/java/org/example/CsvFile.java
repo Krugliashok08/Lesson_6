@@ -18,6 +18,7 @@ public class CsvFile {
 
             writer.write(String.join(";", data.getHeader()));
 
+
             for (int[] row : data.getData()) {
 
                 writer.write(Arrays.stream(row)

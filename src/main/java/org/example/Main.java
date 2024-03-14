@@ -8,14 +8,10 @@ public class Main {
         int[][] data = {{100, 300}, {200, 400}, {123, 500}};
         AppData appData = new AppData(header, data);
 
-        CsvFile.save(appData, "data.csv");
-        AppData loadedData = CsvFile.load("data.csv");
+        CsvFile.save(appData, "file.csv");
+        AppData loadedData = CsvFile.load("file.csv");
 
         if (loadedData != null) {
-
-            System.out.println("Loaded Header: " + String.join(", ", loadedData.getHeader()));
-
-            System.out.println("Loaded Data:");
 
             for (int[] row : loadedData.getData()) {
 
