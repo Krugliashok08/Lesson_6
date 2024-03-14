@@ -3,20 +3,25 @@ import java.io.File;
 import java.util.Arrays;
 public class Main {
 
-        public static void main(String[] args)  {
-            String[] header = {"Value1", "Value", "Value3"};
-            int[][] data = {{100, 300}, {200, 400}, {123, 500}};
+    public static void main(String[] args) {
+        String[] header = {"Value1", "Value2", "Value3"};
+        int[][] data = {{100, 300}, {200, 400}, {123, 500}};
+        AppData appData = new AppData(header, data);
 
-            AppData appData = new AppData(header, data);
-            File file = new File("src/file.csv");
+        CsvFile.save(appData, "data.csv");
+        AppData loadedData = CsvFile.load("data.csv");
 
-            appData.read(file);
+        if (loadedData != null) {
 
-            System.out.println(Arrays.toString(appData.getHeader()));
-            System.out.println(Arrays.toString(appData.getData()[0]));
-            System.out.println(Arrays.toString(appData.getData()[1]));
-            System.out.println(Arrays.toString(appData.getData()[2]));
+            System.out.println("Loaded Header: " + String.join(", ", loadedData.getHeader()));
 
-            appData.write(file);
+            System.out.println("Loaded Data:");
+
+            for (int[] row : loadedData.getData()) {
+
+                System.out.println(Arrays.toString(row));
+
+            }
         }
     }
+}

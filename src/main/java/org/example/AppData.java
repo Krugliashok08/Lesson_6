@@ -1,6 +1,8 @@
 package org.example;
 
-import java.io.File;
+import java.io.*;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class AppData {
     private String[] header;
@@ -10,16 +12,15 @@ public class AppData {
         this.header = header;
         this.data = data;
     }
-
     public String[] getHeader() {
+
         return header;
+
     }
     public int[][] getData() {
+
         return data;
-    }
-    public void read(File file) {
+
     }
 
-    public void write(File file) {
-    }
 }
